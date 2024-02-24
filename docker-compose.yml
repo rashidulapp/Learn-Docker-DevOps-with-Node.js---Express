@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  napp:
+    build: .
+    ports:
+      - "1000:200"
+    env_file:
+      - ./.env
+
+  mongo:
+    image: mongo 
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root 
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
