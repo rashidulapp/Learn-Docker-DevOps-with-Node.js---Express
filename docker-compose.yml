@@ -6,7 +6,12 @@ services:
       - "1000:200"
     env_file:
       - ./.env
-
+    environment:
+      - MONGO_USER=root
+      - MONGO_PASSWORD=example
+    depends_on:
+      - mongo
+      
   mongo:
     image: mongo 
     environment:
