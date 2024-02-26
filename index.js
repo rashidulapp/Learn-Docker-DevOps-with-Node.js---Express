@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const postRoute = require("./routes/post_routes");
+const authRoute = require("./routes/auth_routes")
 const {
   MONGO_USER,
   MONGO_PASSWORD,
@@ -36,7 +37,7 @@ mongoose
 
 
 app.use("/api/v1/posts", postRoute);
-
+app.use("/api/v1/users", authRoute)
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
